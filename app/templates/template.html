@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Criador de Personagens</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #0b1f14, #102a1f);
+            color: #e6f2ea;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(16, 42, 31, 0.9);
+            border-bottom: 1px solid #1f4d3a;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #7ee787;
+        }
+
+        header p {
+            margin-top: 5px;
+            color: #a7cbb5;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #b7d4c2;
+            font-size: 1.1rem;
+        }
+
+        .hero button {
+            margin-top: 25px;
+            padding: 14px 30px;
+            border: none;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            font-size: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            transition: 0.3s;
+        }
+
+        .hero button:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #27ae60, #1e8449);
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 50px 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: rgba(16, 42, 31, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid #1f4d3a;
+            padding: 25px;
+            border-radius: 16px;
+            width: 260px;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #7ee787;
+        }
+
+        .card p {
+            color: #b7d4c2;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.03);
+            background: rgba(26, 66, 48, 0.95);
+        }
+
+        .content-area {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(16, 42, 31, 0.9);
+            border-top: 1px solid #1f4d3a;
+            margin-top: 50px;
+            color: #a7cbb5;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎭 Criador de Personagens</h1>
+    <p>Dê vida às suas ideias</p>
+</header>
+
+<main>
+
+    <div class="content-area">
+        <!-- Aqui entra conteúdo dinâmico no Flask -->
+        {% block content %}{% endblock %}
+    </div>
+    <!--<section class="cards">
+        <div class="card">
+            <h3>🧙‍♂️ Fantasia</h3>
+            <p>Magos, guerreiros e criaturas épicas.</p>
+        </div>
+
+        <div class="card">
+            <h3>🚀 Sci-Fi</h3>
+            <p>Exploradores espaciais e tecnologias futuristas.</p>
+        </div>
+
+        <div class="card">
+            <h3>🕵️ Realista</h3>
+            <p>Personagens baseados no mundo real.</p>
+        </div>
+    </section> -->
+
+
+</main>
+
+<footer>
+    <p>© 2026 - Seu Criador de Personagens</p>
+</footer>
+
+</body>
+</html>
