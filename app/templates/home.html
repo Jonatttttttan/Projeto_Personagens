@@ -1,6 +1,18 @@
 {% extends "template.html" %}
 
 {% block content %}
-<p> Testando</p>
-<h1>OLÀ</h1>
+
+<div>
+    <a href="{{ url_for('principal.index') }}" style="
+        display: inline-block;
+        padding: 12px 25px;
+        background: linear-gradient(135deg, #2ecc71, #27ae60);
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        font-size: 1.1rem;
+    ">
+        Ver Personagens
+    </a>
+</div>
 {% endblock %}

@@ -1,5 +1,85 @@
-{% extends "template.html" %}
+{% block content %}
 
+<div style="padding: 40px; max-width: 1200px; margin: 0 auto;">
 
+    <h2 style="text-align:center; color:#7ee787; margin-bottom:30px;">
+        🌿 Seus Personagens
+    </h2>
+
+    <!-- 🔥 Mensagens -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            <div style="text-align:center; margin-bottom:15px; color:#7ee787;">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endwith %}
+
+    <!-- 🧾 FORMULÁRIO -->
+    <form action="{{ url_for('principal.adicionar') }}" method="POST" style="
+        max-width: 500px;
+        margin: 0 auto 40px auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: rgba(16, 42, 31, 0.6);
+        padding: 20px;
+        border-radius: 12px;
+    ">
+
+        <input type="text" name="nome" placeholder="Nome do personagem" required
+            style="padding:10px; border-radius:8px; border:none;">
+
+        <textarea name="descricao" placeholder="Descrição" required
+            style="padding:10px; border-radius:8px; border:none;"></textarea>
+
+        <button type="submit" style="
+            padding: 10px;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+        ">
+            Criar Personagem
+        </button>
+
+    </form>
+
+    <!-- 🧠 LISTAGEM -->
+    <div style="
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    ">
+
+        {% for char in characters %}
+            <div style="
+                background: rgba(16, 42, 31, 0.85);
+                border: 1px solid #1f4d3a;
+                padding: 20px;
+                border-radius: 15px;
+                width: 260px;
+                box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+                transition: 0.3s;
+            ">
+                <h3 style="color:#7ee787; margin-top:0;">
+                    {{ char.nome }}
+                </h3>
+                <p style="color:#b7d4c2;">
+                    {{ char.descricao }}
+                </p>
+            </div>
+
+        {% else %}
+            <p style="text-align:center; color:#a7cbb5;">
+                Nenhum personagem cadastrado ainda.
+            </p>
+        {% endfor %}
+
+    </div>
+
+</div>
 
 {% endblock %}
