@@ -1,0 +1,35 @@
+{% block content %}
+
+<div style="max-width:500px; margin:50px auto;">
+
+    <h2 style="text-align:center; color:#7ee787;">Editar Personagem</h2>
+
+    <form method="POST" style="
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+        margin-top:20px;
+    ">
+
+        <input type="text" name="nome" value="{{ personagem.nome }}" required
+            style="padding:10px; border-radius:8px; border:none;">
+
+        <textarea name="descricao" required
+            style="padding:10px; border-radius:8px; border:none;">{{ personagem.descricao }}</textarea>
+
+        <button type="submit" style="
+            padding: 10px;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+        ">
+            Salvar Alterações
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

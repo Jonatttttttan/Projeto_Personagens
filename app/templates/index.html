@@ -70,6 +70,31 @@
                 <p style="color:#b7d4c2;">
                     {{ char.descricao }}
                 </p>
+                <!-- 🗑️ BOTÃO DELETE -->
+                <form action="{{ url_for('principal.delete', id=char.id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este personagem?');">
+                     <button type="submit" style="
+                    margin-top:10px;
+                    padding: 6px 10px;
+                    background: #e74c3c;
+                    border: none;
+                    border-radius: 6px;
+                    color: white;
+                    cursor: pointer;
+                    width: 100%;
+                ">
+                    🗑️ Deletar
+                </button>
+                </form>
+                <a href="{{url_for('principal.editar', id=char.id) }}" style="
+    display:block;
+    margin-top:10px;
+    padding: 6px;
+    background: #3498db;
+    border-radius: 6px;
+    color: white;
+    text-align:center;
+    text-decoration:none;
+">✏️ Editar</a>
             </div>
 
         {% else %}
