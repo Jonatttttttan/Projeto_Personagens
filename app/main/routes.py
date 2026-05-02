@@ -1,17 +1,22 @@
 from flask import render_template, request, redirect, flash, url_for, Blueprint
 import os
 
+
 import pandas as pd
 import numpy as np
 from datetime import datetime
 
 from app.models.character import Character
+from flask_login import login_required
+
+
 
 from dotenv import load_dotenv
 
 load_dotenv()
 
 principal_bp = Blueprint("principal", __name__)
+
 
 @principal_bp.route("/")
 def home():
@@ -20,6 +25,7 @@ def home():
 
 # Index
 @principal_bp.route("/index")
+@login_required
 def index():
     characters = Character.query.all()
     print(f"Tipo de 'character': {type(characters)}")
@@ -27,6 +33,7 @@ def index():
 
 # Adicionar
 @principal_bp.route("/adicionar", methods=["POST"])
+@login_required
 def adicionar():
     nome = request.form.get("nome")
     descricao = request.form.get("descricao")
@@ -50,6 +57,7 @@ def adicionar():
 
 # Deletar
 @principal_bp.route("/deletar/<int:id>", methods=["POST"])
+@login_required
 def delete(id):
     from app import db
     from app.models.character import Character
@@ -62,7 +70,9 @@ def delete(id):
     flash("Personagem removido com sucesso!", "success")
     return redirect(url_for("principal.index"))
 
+# Modificar (Update)
 @principal_bp.route("/editar/<int:id>", methods=["GET", "POST"])
+@login_required
 def editar(id):
     from app import db
     from app.models.character import Character

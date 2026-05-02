@@ -1,0 +1,31 @@
+{% extends "template.html" %}
+
+{% block content %}
+
+<div style="max-width:400px; margin:80px auto;">
+
+    <h2 style="text-align:center; color:#7ee787;">Login</h2>
+
+    <form method="POST" style="display:flex; flex-direction:column; gap:10px;">
+
+        <input type="text" name="username" placeholder="Usuário" required
+            style="padding:10px; border-radius:8px; border:none;">
+
+        <input type="password" name="password" placeholder="Senha" required
+            style="padding:10px; border-radius:8px; border:none;">
+
+        <button type="submit" style="
+            padding:10px;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            border:none;
+            border-radius:8px;
+            color:white;
+        ">
+            Entrar
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

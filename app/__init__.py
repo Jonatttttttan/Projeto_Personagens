@@ -2,6 +2,11 @@ from flask import Flask
 import os
 from flask_sqlalchemy import SQLAlchemy # Conexão SQL
 
+from flask_login import LoginManager
+
+login_manager = LoginManager()
+login_manager.login_view = "auth.login" # rota de login
+
 db = SQLAlchemy()
 
 def create_app():
@@ -15,11 +20,23 @@ def create_app():
 
     db.init_app(app)
 
+    login_manager.init_app(app)
+
+    from app.models.user import User
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(int(user_id))
+
+
 
     # importa e regista blueprints
 
     from .main.routes import principal_bp
 
     app.register_blueprint(principal_bp)
+
+    from app.auth.routes import auth_bp
+    app.register_blueprint(auth_bp)
 
     return app
